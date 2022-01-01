@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/VT323-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Player/Hud.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[node name="HudCanvasLayer" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CargoLabel" type="Label" parent="HUD"]
+margin_left = 506.0
+margin_top = 520.0
+margin_right = 610.0
+margin_bottom = 553.0
+text = "Cargo: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmorLabel" type="Label" parent="HUD"]
+margin_left = 506.0
+margin_top = 551.0
+margin_right = 610.0
+margin_bottom = 584.0
+text = "Armor: X"
+__meta__ = {
+"_edit_use_anchors_": false
+}

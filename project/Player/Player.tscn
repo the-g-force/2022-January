@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/good_guy_ship.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Hud.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -7.62387, -1.85671, -1.5, 1.56258, 8.15201, 1.5, 0.942727, 1.94421, 3, 7.62387, -1.85671, -1.5, 2.03016, -7.12698, 1.18971, -5.07857, 9.12698, -0.586183, -7.10872, -0.77559, 2.20627, 0.973137, 1.97467, -3, 7.11032, 7.09365, -0.586183, 7.11032, -0.77559, 2.20627, 0.968594, -3.85361, -2.5, -7.10872, 7.09365, 0.682043, -8.12698, -4.07857, 1.19033, -1.86223, -6.45476, -1, 1.90376, 8.61951, -1.5, 8.12698, -4.07698, 1.19033, -0.933848, -3.67217, 2.5, 8.12698, 4.04523, 1.19033, -7.10872, -0.77559, -2.11104, 1.86223, -6.45476, -1, 7.11032, -0.77559, -2.11104, -2.03016, -7.12698, 1.18971, -0.974665, 1.97467, -3, -1.7866, 8.15201, 1.5, -8.12698, 4.04523, 1.19033, -7.10872, 7.09365, -0.586183, -0.944207, 1.94421, 3, 7.45476, -3.65704, -1, 7.11032, 7.09365, 0.682043, -1.90376, 8.621, -1.5, -7.45476, -3.6585, -1, -0.970114, -3.85361, -2.5, -5.07857, 9.12698, 0.682043, 0.932385, -3.67217, 2.5, -6.66865, 3.85671, -1.5, 6.67014, 3.85671, -1.5, 0.973137, 0.0268625, -3, 0.942727, 0.0572731, 3, -0.974665, 0.0268625, -3, -0.944207, 0.0572731, 3, -7.45476, 3.79335, -1, 7.45476, 3.79335, -1, 6.74458, -1.88859, -2, -6.74307, -1.88859, -2 )
@@ -35,4 +36,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31211, 0, -6.73729 )
 [node name="RightMuzzle" type="Position3D" parent="Armaments"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.312, 0, 6.737 )
 
+[node name="HudCanvasLayer" parent="." instance=ExtResource( 3 )]
+
+[connection signal="update_armor" from="." to="HudCanvasLayer" method="_on_Player_update_armor"]
+[connection signal="update_salvage" from="." to="HudCanvasLayer" method="_on_Player_update_salvage"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
