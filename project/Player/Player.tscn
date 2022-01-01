@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Shippy.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -8.05797, 0.943423, -0.557971, 8.05778, 9.0552, 0.601449, 8.05778, -7.05482, 0.601449, -8.05797, 2.1009, 0.601449, 7.25199, 8.2497, -0.5, 6.89674, -7.05482, -0.557971, -2.02718, 9.0552, 0.601449, -1.82448, 8.2497, -0.5, -8.05797, 0.943423, 0.601449, 6.89674, -7.05482, 0.601449, 7.25199, -6.24932, -0.5, -7.25218, 1.99083, -0.5 )
 
 [node name="Player" type="KinematicBody"]
+script = ExtResource( 2 )
 
 [node name="Shippy" type="MeshInstance" parent="."]
 transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0 )
@@ -18,6 +20,3 @@ material/3 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0 )
