@@ -10,6 +10,8 @@ export var speed := 0.75
 var _dead := false
 var _active := false
 
+onready var _visibility_notifier := $VisibilityNotifier
+
 
 func _physics_process(_delta):
 	# Only worry about this if the player is in range of the sensors
@@ -50,7 +52,7 @@ func short_angle_dist(from, to):
 
 
 func _on_ShotTimer_timeout():
-	if _active:
+	if _active and _visibility_notifier.is_on_screen():
 		var laser : Spatial = _Laser.instance()
 		laser.transform = transform
 		get_parent().add_child(laser)

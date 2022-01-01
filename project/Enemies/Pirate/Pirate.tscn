@@ -44,6 +44,9 @@ shape = SubResource( 2 )
 stream = ExtResource( 3 )
 bus = "SFX"
 
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+aabb = AABB( -8, -3, -8, 16, 6, 16 )
+
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="body_entered" from="Sensor" to="." method="_on_Sensor_body_entered"]
 [connection signal="body_exited" from="Sensor" to="." method="_on_Sensor_body_exited"]
