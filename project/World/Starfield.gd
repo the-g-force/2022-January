@@ -1,7 +1,7 @@
 extends Spatial
 
-export var base_depth := 50
-export var depth_variance := 10
+export var base_depth := 100
+export var depth_variance := 20
 export var base_stars := 200
 export var star_variance := 50
 export var screen_size_x := 1000
