@@ -13,6 +13,7 @@ points = PoolVector3Array( -7.62387, -1.85671, -1.5, 1.56258, 8.15201, 1.5, 0.94
 [node name="Player" type="KinematicBody"]
 collision_mask = 17
 script = ExtResource( 2 )
+armor = 5
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.2
