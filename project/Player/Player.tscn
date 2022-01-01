@@ -38,8 +38,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.312, 0, 6.737 )
 
 [node name="HudCanvasLayer" parent="." instance=ExtResource( 3 )]
 
-[connection signal="dead" from="." to="HudCanvasLayer" method="_on_Player_dead"]
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="SecondTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="game_over" from="." to="HudCanvasLayer" method="_on_Player_game_over"]
+[connection signal="set_game_time" from="." to="HudCanvasLayer" method="_on_Player_set_game_time"]
 [connection signal="update_armor" from="." to="HudCanvasLayer" method="_on_Player_update_armor"]
 [connection signal="update_points" from="." to="HudCanvasLayer" method="_on_Player_update_points"]
 [connection signal="update_salvage" from="." to="HudCanvasLayer" method="_on_Player_update_salvage"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="SecondTimer" to="HudCanvasLayer" method="_on_SecondTimer_timeout"]
