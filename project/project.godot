@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="2022-January"
+config/name="Salvage Scavenger"
 run/main_scene="res://Intro/MainMenu.tscn"
 config/icon="res://icon.png"
 
