@@ -7,6 +7,8 @@ export(NodePath) var target
 export var rotation_speed := 0.01
 export var speed := 0.75
 
+var _dead := false
+
 
 func _physics_process(_delta):
 	var player : Spatial = get_node(target)
@@ -20,6 +22,8 @@ func _physics_process(_delta):
 	
 
 func damage():
+	if _dead:
+		return
 	var explosion := _Explosion.instance()
 	get_parent().add_child(explosion)
 	explosion.transform = transform
@@ -27,6 +31,8 @@ func damage():
 	var salvage = preload("res://World/Salvage.tscn").instance()
 	salvage.transform.origin = transform.origin
 	get_parent().add_child(salvage)
+	
+	_dead = true
 	
 	queue_free()
 
