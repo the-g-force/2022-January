@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Explosion/Explosion.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.0539216, 0.907955 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.113636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.0607735, 0.325967, 0.40884, 0.690608 )
+colors = PoolColorArray( 0, 0.967773, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[node name="ImpactExplosion" type="CPUParticles"]
+lifetime = 0.8
+preprocess = 0.1
+explosiveness = 0.8
+mesh = SubResource( 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 3 )
+script = ExtResource( 1 )
