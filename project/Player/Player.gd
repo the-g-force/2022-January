@@ -2,6 +2,7 @@ extends KinematicBody
 
 signal update_armor(armor)
 signal update_salvage(salvage)
+signal update_points(additional_points)
 signal dead
 
 const _Explosion = preload("res://Explosion/Explosion.tscn")
@@ -94,5 +95,8 @@ func damage():
 
 
 func drop_off()->void:
+	var points := _salvage*_salvage
+	emit_signal("update_points", points)
+	
 	_salvage = 0
 	emit_signal("update_salvage", _salvage)

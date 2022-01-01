@@ -2,11 +2,15 @@ extends CanvasLayer
 
 const ARMOR_MESSAGE := "Armor: "
 const CARGO_MESSAGE := "Cargo: "
+const POINT_MESSAGE := "Points: "
 
-onready var _cargo_label := $HUD/CargoLabel
-onready var _armor_label := $HUD/ArmorLabel
+onready var _cargo_label := $HUD/VBoxContainer/CargoLabel
+onready var _armor_label := $HUD/VBoxContainer/ArmorLabel
+onready var _point_label := $HUD/VBoxContainer/PointLabel
 onready var _game_over_message := $HUD/GameOverMessage
 onready var _game_over_buttons := $HUD/GameOverButtons
+
+var _points := 0
 
 
 func _ready()->void:
@@ -33,3 +37,8 @@ func _on_PlayAgain_pressed()->void:
 
 func _on_MainMenu_pressed()->void:
 	var _ignored = get_tree().change_scene("res://Intro/MainMenu.tscn")
+
+
+func _on_Player_update_points(additional_points:int)->void:
+	_points += additional_points
+	_point_label.text = POINT_MESSAGE + str(_points)

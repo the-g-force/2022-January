@@ -18,7 +18,7 @@ size = Vector3( 2, 2, 1000 )
 extents = Vector3( 1, 10, 500 )
 
 [sub_resource type="CylinderShape" id=4]
-radius = 32.0
+radius = 22.0225
 height = 10.0
 
 [sub_resource type="SphereMesh" id=5]
