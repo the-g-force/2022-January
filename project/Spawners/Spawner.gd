@@ -11,7 +11,7 @@ func _on_Timer_timeout()->void:
 		return
 	var pirate := _Pirate.instance()
 	
-	var position_offset := Vector3.RIGHT.rotated(Vector3.UP, randf()*TAU)
+	var position_offset := Vector3.RIGHT.rotated(Vector3.UP, randf()*TAU)*16
 	pirate.transform.origin = get_global_transform().origin + position_offset
 	pirate.rotation.y = randf()*TAU
 	
