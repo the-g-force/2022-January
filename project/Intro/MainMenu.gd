@@ -15,3 +15,8 @@ func _input(event):
 func _on_Button_pressed():
 	# warning-ignore:return_value_discarded
  get_tree().change_scene("res://World/World.tscn")
+
+
+func _on_ClickPromptTimer_timeout():
+	if not pressed:
+		$Splash/ClickPrompt.visible = true
