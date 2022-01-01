@@ -4,7 +4,7 @@
 [ext_resource path="res://World/Starfield.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/World.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Pirate/Pirate.tscn" type="PackedScene" id=4]
-[ext_resource path="res://World/base_loop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://World/theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://World/Music.gd" type="Script" id=6]
 
 [sub_resource type="Environment" id=1]
