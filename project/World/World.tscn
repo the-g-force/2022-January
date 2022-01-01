@@ -13,7 +13,7 @@ ambient_light_color = Color( 1, 1, 1, 1 )
 size = Vector3( 2, 2, 1000 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 1, 500 )
+extents = Vector3( 1, 10, 500 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
