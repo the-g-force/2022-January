@@ -91,3 +91,8 @@ func damage():
 		emit_signal("dead")
 	
 	emit_signal("update_armor", armor)
+
+
+func drop_off()->void:
+	_salvage = 0
+	emit_signal("update_salvage", _salvage)
