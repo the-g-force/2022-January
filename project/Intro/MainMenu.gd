@@ -8,6 +8,7 @@ func _input(event):
 		if e.is_pressed():
 			# warning-ignore:return_value_discarded
 			get_node("AnimationPlayer").play("splash screen")
+			$AudioStreamPlayer.play()
 			pressed = true
 
 
