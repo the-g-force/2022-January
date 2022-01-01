@@ -27,4 +27,12 @@ material/4 = null
 transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="Armaments" type="Spatial" parent="."]
+
+[node name="LeftMuzzle" type="Position3D" parent="Armaments"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31211, 0, -6.73729 )
+
+[node name="RightMuzzle" type="Position3D" parent="Armaments"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.312, 0, 6.737 )
+
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
