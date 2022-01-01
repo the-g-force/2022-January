@@ -1,6 +1,7 @@
 extends KinematicBody
 
 const _Laser = preload("res://Enemies/EnemyLaser.tscn")
+const _Explosion = preload("res://Explosion/Explosion.tscn")
 
 export(NodePath) var target
 export var rotation_speed := 0.01
@@ -19,6 +20,9 @@ func _physics_process(_delta):
 	
 
 func damage():
+	var explosion := _Explosion.instance()
+	get_parent().add_child(explosion)
+	explosion.transform = transform
 	queue_free()
 
 

@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Explosion/Explosion.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 vertex_color_use_as_albedo = true
@@ -11,11 +13,9 @@ offsets = PoolRealArray( 0.0497238, 0.303867, 0.734807, 0.867403, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0.104004, 0.10116, 0.10116, 1 )
 
 [node name="Explosion" type="CPUParticles"]
-emitting = false
 amount = 30
 lifetime = 1.4
-one_shot = true
-speed_scale = 1.5
+speed_scale = 4.0
 explosiveness = 0.46
 randomness = 1.0
 lifetime_randomness = 0.26
@@ -25,3 +25,4 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 15.0
 scale_amount = 3.0
 color_ramp = SubResource( 3 )
+script = ExtResource( 1 )

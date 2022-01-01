@@ -1,5 +1,7 @@
 extends KinematicBody
 
+const _Explosion = preload("res://Explosion/Explosion.tscn")
+
 export var speed = 1
 export var rotation_speed = 0.15
 
@@ -45,5 +47,10 @@ func short_angle_dist(from, to):
 
 
 func damage():
-	print('Do something better than queue_free')
+	# ONE SHOT KILL
+	var explosion := _Explosion.instance()
+	get_parent().add_child(explosion)
+	explosion.transform = transform
+	
+	print('Do something better than queue_free')	
 	visible = false
