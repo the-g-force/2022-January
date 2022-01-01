@@ -6,6 +6,7 @@
 [ext_resource path="res://Enemies/Pirate/Pirate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://World/Music.gd" type="Script" id=6]
+[ext_resource path="res://World/Station.obj" type="ArrayMesh" id=7]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -21,10 +22,6 @@ extents = Vector3( 1, 10, 500 )
 radius = 22.0225
 height = 10.0
 
-[sub_resource type="SphereMesh" id=5]
-radius = 32.0
-height = 64.0
-
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
 camera_vertical_offset = 80
@@ -38,6 +35,8 @@ move_lock_y = true
 
 [node name="Starfield" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -500, 0, -500 )
+base_depth = 150
+depth_variance = 40
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 200, 0 )
@@ -117,15 +116,18 @@ autoplay = true
 bus = "Music"
 script = ExtResource( 6 )
 
-[node name="Planet" type="Area" parent="."]
+[node name="Station" type="Area" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="Planet"]
+[node name="CollisionShape" type="CollisionShape" parent="Station"]
 shape = SubResource( 4 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Planet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0 )
-mesh = SubResource( 5 )
+[node name="MeshInstance" type="MeshInstance" parent="Station"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -7, 0 )
+mesh = ExtResource( 7 )
 material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
 
-[connection signal="body_entered" from="Planet" to="." method="_on_Planet_body_entered"]
+[connection signal="body_entered" from="Station" to="." method="_on_Planet_body_entered"]
