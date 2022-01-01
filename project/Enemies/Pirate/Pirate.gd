@@ -33,7 +33,7 @@ func damage():
 	get_parent().add_child(explosion)
 	explosion.transform = transform
 	
-	var salvage = preload("res://World/Salvage.tscn").instance()
+	var salvage = preload("res://World/Salvage/Salvage.tscn").instance()
 	salvage.transform.origin = transform.origin
 	get_parent().add_child(salvage)
 	

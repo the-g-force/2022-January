@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "StaticBody",
 "class": "Salvage",
 "language": "GDScript",
-"path": "res://World/Salvage.gd"
+"path": "res://World/Salvage/Salvage.gd"
 } ]
 _global_script_class_icons={
 "Salvage": ""

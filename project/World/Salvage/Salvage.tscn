@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Salvage/Salvage.gd" type="Script" id=1]
+[ext_resource path="res://World/Salvage/Crystal.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -1.89007, 0.050851, -1, 1, 2.80639, 1.40143, 1, 2.80639, -1.38556, 1.96925, -0.98779, -1.5, -0.953407, -0.967033, 1.5, 3.03958, 0.944507, 1.07927, -1.90821, 2, 1.47544, -1.90821, 2, -1.45956, 1.95379, -0.967033, 1.5, 2.88929, 1.99206, -1, -0.968869, -0.98779, -1.5, -0.918715, 2.88871, -1, -2.03968, 0.944903, 1.55556, 2.85167, 1.97619, 1, 2.00792, 1.02296, 1.55556, 2.00792, 1.02296, -1.53968, 3.03958, 0.944507, -1.0634, -0.896374, 2.85872, 1, -2.03968, 0.944903, -1.53968, -1.85243, 0.0655482, 1, 5.55112e-17, 2.80602, 1.40115, 5.55112e-17, 2.80602, -1.38528 )
+
+[node name="Salvage" type="StaticBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Crystal" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
