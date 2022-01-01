@@ -29,7 +29,7 @@ move_lock_y = true
 [node name="Starfield" parent="." instance=ExtResource( 2 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 50, 0 )
+transform = Transform( 1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 100, 0 )
 far = 1000.0
 
 [node name="WorldBounds" type="Spatial" parent="."]
