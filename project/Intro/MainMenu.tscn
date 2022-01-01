@@ -1,18 +1,66 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Intro/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://World/VT323-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://World/palette.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_color = Color( 0.831373, 0.490196, 0.32549, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.176471, 0.192157, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Palette" type="Sprite" parent="ColorRect"]
+position = Vector2( 518, -57 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = 36.5
+margin_right = 38.5
+margin_bottom = 75.5
 text = "Play!"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -86.5
+margin_top = 194.0
+margin_right = 86.5
+margin_bottom = 285.0
+custom_colors/font_color = Color( 1, 0.878431, 0.317647, 1 )
+text = "The G Force
+presents"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
