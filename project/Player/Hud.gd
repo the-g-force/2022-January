@@ -46,7 +46,6 @@ func _on_SecondTimer_timeout()->void:
 	if _seconds_left > 0:
 		_seconds_left -= 1
 	_seconds_display.text = str(_seconds_left)
-	print(_seconds_left)
 
 
 func _on_Player_set_game_time(game_length:int)->void:
