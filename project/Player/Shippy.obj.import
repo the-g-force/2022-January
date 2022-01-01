@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Shippy.obj-e2f4fc2bb2894f5dda280b4dded7f163.mesh"
+
+[deps]
+
+files=[ "res://.import/Shippy.obj-e2f4fc2bb2894f5dda280b4dded7f163.mesh" ]
+
+source_file="res://Player/Shippy.obj"
+dest_files=[ "res://.import/Shippy.obj-e2f4fc2bb2894f5dda280b4dded7f163.mesh", "res://.import/Shippy.obj-e2f4fc2bb2894f5dda280b4dded7f163.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
