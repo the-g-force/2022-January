@@ -34,7 +34,12 @@ func _physics_process(_delta):
 		var target_direction = -direction.angle()
 		rotation.y += short_angle_dist(current_direction, target_direction) * rotation_speed
 	
-	var _ignored := move_and_collide(Vector3(thrust,0,0).rotated(Vector3.UP, rotation.y))
+	var collision := move_and_collide(Vector3(thrust,0,0).rotated(Vector3.UP, rotation.y))
+	if collision != null:
+		if collision.collider is Salvage:
+			collision.collider.queue_free()
+			_salvage += 1
+			emit_signal("update_salvage", _salvage)
 
 	if Input.is_action_just_pressed("fire") and _can_shoot:
 		for muzzle in _armaments.get_children():

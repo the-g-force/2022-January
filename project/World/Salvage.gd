@@ -1,3 +1,4 @@
+class_name Salvage
 extends StaticBody
 
 export var rotation_speed = 4.0

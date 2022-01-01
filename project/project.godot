@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "StaticBody",
+"class": "Salvage",
+"language": "GDScript",
+"path": "res://World/Salvage.gd"
+} ]
+_global_script_class_icons={
+"Salvage": ""
+}
+
 [application]
 
 config/name="2022-January"
