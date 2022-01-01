@@ -3,7 +3,8 @@ extends KinematicBody
 signal update_armor(armor)
 signal update_salvage(salvage)
 signal update_points(additional_points)
-signal dead
+signal set_game_time(game_length)
+signal game_over
 
 const _Explosion = preload("res://Explosion/Explosion.tscn")
 const _ImpactExplosion = preload("res://Explosion/ImpactExplosion.tscn")
@@ -15,18 +16,21 @@ export var armor := 3
 var _Laserblast = preload("res://Player/Laserblast.tscn")
 var _can_shoot := true
 var _salvage := 0
-var _dead := false
+var _freeze := false
 
 onready var _shot_timer := $ShotTimer
 onready var _armaments := $Armaments
+onready var _game_timer := $GameTimer
+onready var _second_timer := $SecondTimer
 
 func _ready()->void:
 	emit_signal("update_armor", armor)
+	emit_signal("set_game_time", _game_timer.wait_time)
 
 
 func _physics_process(_delta):
 	
-	if _dead:
+	if _freeze:
 		return
 	
 	var direction = Vector2(
@@ -46,8 +50,8 @@ func _physics_process(_delta):
 		if collision.collider is Salvage:
 			collision.collider.queue_free()
 			_salvage += 1
-			$PickupSound.play()
 			emit_signal("update_salvage", _salvage)
+			$PickupSound.play()
 
 	if Input.is_action_just_pressed("fire") and _can_shoot:
 		for muzzle in _armaments.get_children():
@@ -55,7 +59,8 @@ func _physics_process(_delta):
 			get_parent().add_child(blast)
 			blast.transform.origin = muzzle.get_global_transform().origin
 			blast.direction = Vector3(1,0,0).rotated(Vector3.UP, rotation.y)
-			$ShootSound.play()
+		
+		$ShootSound.play()
 		
 		_can_shoot = false
 		_shot_timer.start()
@@ -73,11 +78,11 @@ func short_angle_dist(from, to):
 
 
 func damage():
-	if _dead:
+	if _freeze:
 		return
 	
 	armor -= 1
-	$HitSound.play()
+	$HitSound.play()	
 	
 	if armor > 0:
 		var impact := _ImpactExplosion.instance()
@@ -88,10 +93,12 @@ func damage():
 		get_parent().add_child(explosion)
 		explosion.transform = transform
 	
-		_dead = true
+		_freeze = true
 		hide()
+		_second_timer.stop()
+		_game_timer.stop()
 		
-		emit_signal("dead")
+		emit_signal("game_over")
 	
 	emit_signal("update_armor", armor)
 
@@ -102,3 +109,9 @@ func drop_off()->void:
 	
 	_salvage = 0
 	emit_signal("update_salvage", _salvage)
+
+
+func _on_GameTimer_timeout()->void:
+	emit_signal("game_over")
+	_second_timer.stop()
+	_freeze = true

@@ -1,43 +1,216 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Intro/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://World/VT323-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://World/palette.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
-outline_color = Color( 0.831373, 0.490196, 0.32549, 1 )
+size = 44
+outline_color = Color( 0.913725, 0.164706, 0.333333, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 108
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Splash:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main/Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main/Title:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 442, 339 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Main/Title:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Main/instructions:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "splash screen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Splash:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -800 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main/Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 2.82843 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main/Title:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 0.9 ),
+"transitions": PoolRealArray( 4.75683, 1 ),
+"update": 0,
+"values": [ Vector2( 1.01703e-05, 1.01703e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Main/instructions:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 399, 174 )
 theme = SubResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Main" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.160784, 0.176471, 0.192157, 1 )
+color = Color( 0.278431, 0.360784, 0.447059, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Palette" type="Sprite" parent="ColorRect"]
+[node name="Palette" type="Sprite" parent="Main"]
 position = Vector2( 518, -57 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Title" type="Label" parent="Main"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -221.0
+margin_top = 49.0
+margin_right = 221.0
+margin_bottom = 388.0
+rect_pivot_offset = Vector2( 221, 171 )
+custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
+custom_colors/font_color_shadow = Color( 0.0156863, 0.454902, 0.419608, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Salvage
+Scavenger"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="instructions" type="Label" parent="Main"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -341.0
+margin_top = -293.0
+margin_right = 341.0
+text = "Blast enemies and 
+return debris to the space station for fun and profit."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -47,20 +220,77 @@ margin_top = 36.5
 margin_right = 38.5
 margin_bottom = 75.5
 text = "Play!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="Splash" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.176471, 0.192157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GForce" type="Label" parent="Splash"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -86.5
-margin_top = 194.0
-margin_right = 86.5
-margin_bottom = 285.0
-custom_colors/font_color = Color( 1, 0.878431, 0.317647, 1 )
-text = "The G Force
-presents"
+anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = -143.0
+margin_right = 143.0
+margin_bottom = -50.0
+custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "The G Force"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GForce2" type="Label" parent="Splash"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -86.5
+margin_top = -127.0
+margin_right = 111.5
+margin_bottom = -34.0
+custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
+text = "
+presents..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickPrompt" type="Label" parent="Splash"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -110.5
+margin_top = -91.0002
+margin_right = 110.5
+custom_colors/font_color = Color( 1, 0.878431, 0.317647, 1 )
+text = "Click to Continue
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+"anims/splash screen" = SubResource( 4 )
+
+[node name="ClickPromptTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="ClickPromptTimer" to="." method="_on_ClickPromptTimer_timeout"]

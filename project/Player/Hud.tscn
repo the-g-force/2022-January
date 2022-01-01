@@ -103,5 +103,14 @@ margin_bottom = 82.0
 grow_horizontal = 2
 text = "Main Menu"
 
+[node name="Label" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 33.0
+text = "60"
+
 [connection signal="pressed" from="HUD/GameOverButtons/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="HUD/GameOverButtons/MainMenu" to="." method="_on_MainMenu_pressed"]
