@@ -46,6 +46,7 @@ func _physics_process(_delta):
 		if collision.collider is Salvage:
 			collision.collider.queue_free()
 			_salvage += 1
+			$PickupSound.play()
 			emit_signal("update_salvage", _salvage)
 
 	if Input.is_action_just_pressed("fire") and _can_shoot:
@@ -54,6 +55,7 @@ func _physics_process(_delta):
 			get_parent().add_child(blast)
 			blast.transform.origin = muzzle.get_global_transform().origin
 			blast.direction = Vector3(1,0,0).rotated(Vector3.UP, rotation.y)
+			$ShootSound.play()
 		
 		_can_shoot = false
 		_shot_timer.start()
@@ -71,11 +73,11 @@ func short_angle_dist(from, to):
 
 
 func damage():
-	
 	if _dead:
 		return
 	
 	armor -= 1
+	$HitSound.play()
 	
 	if armor > 0:
 		var impact := _ImpactExplosion.instance()

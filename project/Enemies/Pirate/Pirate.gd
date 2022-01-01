@@ -52,8 +52,9 @@ func short_angle_dist(from, to):
 func _on_ShotTimer_timeout():
 	if _active:
 		var laser : Spatial = _Laser.instance()
-		laser.transform = transform		
+		laser.transform = transform
 		get_parent().add_child(laser)
+		$ShootSound.play()
 
 
 func _on_Sensor_body_entered(body):
