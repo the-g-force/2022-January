@@ -2,6 +2,7 @@ extends KinematicBody
 
 signal update_armor(armor)
 signal update_salvage(salvage)
+signal dead
 
 const _Explosion = preload("res://Explosion/Explosion.tscn")
 const _ImpactExplosion = preload("res://Explosion/ImpactExplosion.tscn")
@@ -13,6 +14,7 @@ export var armor := 3
 var _Laserblast = preload("res://Player/Laserblast.tscn")
 var _can_shoot := true
 var _salvage := 0
+var _dead := false
 
 onready var _shot_timer := $ShotTimer
 onready var _armaments := $Armaments
@@ -22,6 +24,10 @@ func _ready()->void:
 
 
 func _physics_process(_delta):
+	
+	if _dead:
+		return
+	
 	var direction = Vector2(
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up", "move_down")
@@ -64,6 +70,10 @@ func short_angle_dist(from, to):
 
 
 func damage():
+	
+	if _dead:
+		return
+	
 	armor -= 1
 	
 	if armor > 0:
@@ -75,7 +85,9 @@ func damage():
 		get_parent().add_child(explosion)
 		explosion.transform = transform
 	
-		print('Do something better than queue_free')
-		visible = false
+		_dead = true
+		hide()
+		
+		emit_signal("dead")
 	
 	emit_signal("update_armor", armor)

@@ -48,3 +48,49 @@ text = "Armor: X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverMessage" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = -66.0
+margin_right = 65.0
+margin_bottom = -31.0
+grow_horizontal = 2
+text = "Game Over! You got X points!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverButtons" type="VBoxContainer" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 41.0
+grow_horizontal = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgain" type="Button" parent="HUD/GameOverButtons"]
+margin_right = 142.0
+margin_bottom = 39.0
+grow_horizontal = 2
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="HUD/GameOverButtons"]
+margin_top = 43.0
+margin_right = 142.0
+margin_bottom = 82.0
+grow_horizontal = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="HUD/GameOverButtons/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="HUD/GameOverButtons/MainMenu" to="." method="_on_MainMenu_pressed"]

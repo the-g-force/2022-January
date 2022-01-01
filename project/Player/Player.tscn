@@ -38,6 +38,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.312, 0, 6.737 )
 
 [node name="HudCanvasLayer" parent="." instance=ExtResource( 3 )]
 
+[connection signal="dead" from="." to="HudCanvasLayer" method="_on_Player_dead"]
 [connection signal="update_armor" from="." to="HudCanvasLayer" method="_on_Player_update_armor"]
 [connection signal="update_salvage" from="." to="HudCanvasLayer" method="_on_Player_update_salvage"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
