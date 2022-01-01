@@ -22,7 +22,7 @@ func _ready():
 		var star_y := randi()%screen_size_y
 		star.transform.origin = Vector3(star_x, -depth, star_y)
 		
-		var star_size := 2
+		var star_size := 2.0
 		var star_color_index := randi()%8
 		var star_color := Color.white
 		match star_color_index:
