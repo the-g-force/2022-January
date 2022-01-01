@@ -57,3 +57,4 @@ func _on_Player_game_over()->void:
 	_game_over_buttons.visible = true
 	_game_over_message.visible = true
 	_game_over_message.text = "Game over! You got "+str(_points)+" points!"
+	_seconds_display.text = "0"
