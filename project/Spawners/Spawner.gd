@@ -6,7 +6,15 @@ export (NodePath) var player
 
 onready var _visiblity_notifier := $VisibilityNotifier
 
+func _ready()->void:
+	call_deferred("_spawn")
+
+
 func _on_Timer_timeout()->void:
+	_spawn()
+
+
+func _spawn()->void:
 	if _visiblity_notifier.is_on_screen():
 		return
 	var pirate := _Pirate.instance()
