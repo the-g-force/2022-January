@@ -22,20 +22,28 @@ __meta__ = {
 }
 
 [node name="CargoLabel" type="Label" parent="HUD"]
-margin_left = 506.0
-margin_top = 520.0
-margin_right = 610.0
-margin_bottom = 553.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -52.0
+margin_top = -79.0
+margin_right = 52.0
+margin_bottom = -44.0
 text = "Cargo: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ArmorLabel" type="Label" parent="HUD"]
-margin_left = 506.0
-margin_top = 551.0
-margin_right = 610.0
-margin_bottom = 584.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -52.0
+margin_top = -48.0
+margin_right = 52.0
+margin_bottom = -15.0
 text = "Armor: X"
 __meta__ = {
 "_edit_use_anchors_": false

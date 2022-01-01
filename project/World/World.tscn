@@ -19,6 +19,7 @@ extents = Vector3( 1, 10, 500 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
+camera_vertical_offset = 80
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -31,7 +32,7 @@ move_lock_y = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -500, 0, -500 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 100, 0 )
+transform = Transform( 1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 200, 0 )
 far = 1000.0
 __meta__ = {
 "_edit_lock_": true
