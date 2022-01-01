@@ -8,9 +8,14 @@ export var rotation_speed := 0.01
 export var speed := 0.75
 
 var _dead := false
+var _active := false
 
 
 func _physics_process(_delta):
+	# Only worry about this if the player is in range of the sensors
+	if not _active:
+		return
+	
 	var player : Spatial = get_node(target)
 	var vector_toward_target = player.transform.origin - transform.origin
 	var angle = atan2(vector_toward_target.z, vector_toward_target.x)
@@ -45,6 +50,17 @@ func short_angle_dist(from, to):
 
 
 func _on_ShotTimer_timeout():
-	var laser : Spatial = _Laser.instance()
-	get_parent().add_child(laser)
-	laser.transform = transform
+	if _active:
+		var laser : Spatial = _Laser.instance()
+		laser.transform = transform		
+		get_parent().add_child(laser)
+
+
+func _on_Sensor_body_entered(body):
+	assert(body.name=='Player')
+	_active = true
+
+
+func _on_Sensor_body_exited(body):
+	assert(body.name=='Player')	
+	_active = false

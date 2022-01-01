@@ -118,6 +118,7 @@ bus = "Music"
 script = ExtResource( 6 )
 
 [node name="Planet" type="Area" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Planet"]
 shape = SubResource( 4 )
