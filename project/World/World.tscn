@@ -13,6 +13,7 @@
 background_mode = 1
 background_color = Color( 0.0392157, 0.0352941, 0.0352941, 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.8
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 2, 2, 1000 )
@@ -150,5 +151,9 @@ player = NodePath("../../Player")
 [node name="Spawner4" parent="Spawns" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -250 )
 player = NodePath("../../Player")
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.901931, 0.0599494, 0.4277, -0.219988, -0.788444, 0.574423, 0.371654, -0.612179, -0.697933, 0, 51.6, 0 )
+shadow_enabled = true
 
 [connection signal="body_entered" from="Station" to="." method="_on_Planet_body_entered"]
