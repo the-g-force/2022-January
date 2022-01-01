@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Intro/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://World/VT323-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://World/palette.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 44
 outline_color = Color( 0.913725, 0.164706, 0.333333, 1 )
 font_data = ExtResource( 2 )
 
@@ -13,12 +13,16 @@ font_data = ExtResource( 2 )
 default_font = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 92
+size = 108
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Splash/GForce:visible")
+tracks/0/path = NodePath("Splash:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,10 +31,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Button:visible")
+tracks/1/path = NodePath("Main/Title:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -42,7 +46,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Splash/GForce:rect_position")
+tracks/2/path = NodePath("Main/Title:rect_size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -51,10 +55,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 313.5, 273 ) ]
+"values": [ Vector2( 442, 339 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Splash:rect_position")
+tracks/3/path = NodePath("Main/Title:rect_scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -63,51 +67,15 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Main/Title:visible")
+tracks/4/path = NodePath("Main/instructions:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Main/Title:rect_size")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 442, 339 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Main/Title:rect_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Main/instructions:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -208,13 +176,15 @@ visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -221.0
-margin_right = 223.0
-margin_bottom = 339.0
+margin_top = 49.0
+margin_right = 221.0
+margin_bottom = 388.0
 rect_pivot_offset = Vector2( 221, 171 )
 custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
-custom_colors/font_color_shadow = Color( 0.172549, 0.427451, 0.756863, 1 )
+custom_colors/font_color_shadow = Color( 0.0156863, 0.454902, 0.419608, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "Salvage Time"
+text = "Salvage
+Scavenger"
 align = 1
 valign = 1
 __meta__ = {
@@ -227,10 +197,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -262.0
+margin_left = -341.0
 margin_top = -293.0
-margin_right = 262.0
-text = "Blast your enemies to smithereens and return their debris to your home planet for fun and profit."
+margin_right = 341.0
+text = "Blast enemies and 
+return debris to the space station for fun and profit."
+align = 1
 valign = 1
 autowrap = true
 __meta__ = {
@@ -265,12 +237,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = -143.0
+margin_right = 143.0
+margin_bottom = -50.0
+custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "The G Force"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GForce2" type="Label" parent="Splash"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -86.5
 margin_top = -127.0
-margin_right = 86.5
-margin_bottom = -35.9998
-custom_colors/font_color = Color( 1, 0.878431, 0.317647, 1 )
-text = "The G Force
+margin_right = 111.5
+margin_bottom = -34.0
+custom_colors/font_color = Color( 0.866667, 0.898039, 0.933333, 1 )
+text = "
 presents..."
 align = 1
 __meta__ = {
