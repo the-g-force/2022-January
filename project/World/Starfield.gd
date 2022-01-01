@@ -27,12 +27,12 @@ func _ready():
 		var star_color := Color.white
 		match star_color_index:
 			0:
-				star_color = Color.aqua
+				star_color = Color("2C6DC1")
 				star_size += 1
 			1:
-				star_color = Color.yellow
+				star_color = Color("FFE051")
 			2:
-				star_color = Color.orange
+				star_color = Color("DD871E")
 		
 		star_size += randf()-0.3
 		
